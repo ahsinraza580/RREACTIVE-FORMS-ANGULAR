@@ -1,0 +1,76 @@
+<!--<button mat-flat-button color="primary" [routerLink]="['/edit']">go</button>-->
+<div></div>
+<mat-card>
+  <mat-card-content>
+    <div class="header">
+      <h1>Add Employee</h1>
+    </div>
+    <form [formGroup]="EMPForm" (ngSubmit)="onLogin()"  >
+
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Name</mat-label>
+          <input
+            formControlName="name"
+            matInput
+            type="text"
+            placeholder="Enter your name" required
+          />
+          <mat-error *ngIf="EMPForm.controls['name'].hasError('required')">
+            Name is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            matInput type="email"
+            placeholder="Enter email address" required
+          />
+          <mat-error *ngIf="EMPForm.controls['email'].hasError('email') && !EMPForm.controls['email'].hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error *ngIf="EMPForm.controls['email'].hasError('required')">
+            Email is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Age</mat-label>
+          <input
+            formControlName="age"
+            matInput type="number"
+            placeholder="Enter your age" required
+          />
+          <mat-error *ngIf="EMPForm.controls['age'].hasError('required')">
+            age is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Salary</mat-label>
+          <input
+            formControlName="salary"
+            matInput
+            placeholder="Enter your salary" required
+          />
+          <mat-error *ngIf="EMPForm.controls['salary'].hasError('required')">
+            salary is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-flat-button color="primary">Add</button>
+    </form>
+
+  </mat-card-content>
+</mat-card>
